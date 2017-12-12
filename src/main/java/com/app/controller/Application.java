@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan({"com.app.controller.Application"})
+@ComponentScan({"com.app.controller.Application" , "com.app.controller.PersonDao","com.app.pojo.Person"})
 @ComponentScan(basePackageClasses = {com.app.controller.LoginController.class})
 public class Application {
 

@@ -1,21 +1,23 @@
 package com.app.controller;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.app.pojo.Person;
-
 @Controller
 public class LoginController {
 
-	
+	@Autowired
+	PersonDao personDao;
 	@RequestMapping("/login")
 	public String login()
 	{
+		Person person = new Person("arpit", 22);
+		System.out.println(person);
+		personDao.addPerson(person);
+		System.out.println("inside login");
 		return "loginPage";
 	}
 	
@@ -24,7 +26,7 @@ public class LoginController {
 	{	
 		System.out.println(name);
 		System.out.println(age);
-		 
+		System.out.println("insidn");
 		return "loginPage";
 	}
 	
